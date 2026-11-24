@@ -8,42 +8,13 @@
 
 ## 安装到你的 Agent
 
-需要 Git、Python 3.8 或更新版本，以及支持 WebGL 2 的浏览器。网页和模型已经随 Skill 打包，安装后可以离线使用。
+直接把这句话发给你的 Agent：
 
-将仓库克隆到你的 Agent 的技能目录。下面以 `~/.agents/skills` 为例，如果你的 Agent 使用其他目录，请替换命令中的路径。
-
-macOS 或 Linux 在终端运行：
-
-```sh
-mkdir -p ~/.agents/skills
-git clone https://github.com/panggungunvibe/human-muscle-atlas.git ~/.agents/skills/human-muscle-atlas
-```
-
-Windows 在 PowerShell 运行：
-
-```powershell
-$skillsDir = Join-Path $env:USERPROFILE ".agents/skills"
-New-Item -ItemType Directory -Force $skillsDir | Out-Null
-git clone https://github.com/panggungunvibe/human-muscle-atlas.git (Join-Path $skillsDir "human-muscle-atlas")
-```
-
-安装后，在你的 Agent 中新建对话，输入下面这句即可打开图谱。
-
-> 用「人体肌群解剖版」打开图谱，带我找到缝匠肌，看看它怎样斜跨大腿。
+> 帮我安装这个 Skill：https://github.com/panggungunvibe/human-muscle-atlas
 
 ## 怎么用
 
-1. **找位置。** 在目录中输入「缝匠肌」，或直接点击大腿前侧斜行的细长肌肉。详情中会显示名称、所属肌群和主要作用。
-2. **看走向。** 拖动模型即可旋转，滚轮缩放，按住鼠标右键拖动可平移。手机上用单指旋转，双指缩放或平移。
-3. **辨认相邻结构。** 切到「背面」，点击小腿后方的腓肠肌，再点击下方浅色的跟腱，对照肌腹与肌腱。想看清某一块肌肉时，选择「单独显示」或「放大观察」。
-
-也可以直接启动网页。在仓库根目录运行：
-
-```sh
-python3 scripts/launch.py --open --muscle "腓肠肌"
-```
-
-Windows 将 `python3` 换成 `py -3`。去掉 `--muscle` 就会打开全身图谱。脚本会打印本机地址，按 Ctrl+C 可关闭服务。
+> 打开「人体肌群解剖版」，帮我找到缝匠肌，看看它属于哪个肌群。
 
 ## 资料来源
 

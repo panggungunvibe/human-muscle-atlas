@@ -6,9 +6,11 @@
 
 ![人体肌群解剖版实际渲染的正背面对照图](docs/anatomy-preview.png)
 
-## 安装到 Codex
+## 安装到你的 Agent
 
 需要 Git、Python 3.8 或更新版本，以及支持 WebGL 2 的浏览器。网页和模型已经随 Skill 打包，安装后可以离线使用。
+
+将仓库克隆到你的 Agent 的技能目录。下面以 `~/.agents/skills` 为例，如果你的 Agent 使用其他目录，请替换命令中的路径。
 
 macOS 或 Linux 在终端运行：
 
@@ -25,9 +27,9 @@ New-Item -ItemType Directory -Force $skillsDir | Out-Null
 git clone https://github.com/panggungunvibe/human-muscle-atlas.git (Join-Path $skillsDir "human-muscle-atlas")
 ```
 
-重新打开 Codex，在新对话中输入下面这句即可启动。技能列表中的显示名为「人体肌群解剖版」，调用名为 `$human-muscle-atlas`。
+安装后，在你的 Agent 中新建对话，输入下面这句即可打开图谱。
 
-> 使用 $human-muscle-atlas 打开图谱，带我找到缝匠肌，看看它怎样斜跨大腿。
+> 用「人体肌群解剖版」打开图谱，带我找到缝匠肌，看看它怎样斜跨大腿。
 
 ## 怎么用
 

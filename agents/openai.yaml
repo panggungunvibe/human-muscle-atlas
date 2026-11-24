@@ -1,0 +1,4 @@
+interface:
+  display_name: "人体肌群解剖版"
+  short_description: "旋转三维人体，逐块辨认肌肉，查看所属肌群、体表位置与主要动作"
+  default_prompt: "使用 $human-muscle-atlas 打开人体肌群解剖版，带我找到缝匠肌并了解它的作用。"

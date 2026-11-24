@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <title>人体肌群解剖版</title>
+  <meta name="description" content="旋转三维人体解剖标本，点选肌肉查看肌群、位置与动作。">
+  <script type="module" crossorigin src="/bundles/viewer.js"></script>
+  <link rel="stylesheet" crossorigin href="/bundles/index.css">
+</head>
+<body>
+  <a class="skip-link" href="#anatomy-canvas">跳到模型</a>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">Ⅲ</span><strong>人体肌群解剖版</strong></div>
+      <button type="button" id="source-toggle">资料与模型来源</button>
+    </header>
+    <main class="workspace">
+      <aside class="catalog-panel" aria-label="肌肉目录">
+        <div class="panel-heading"><h1>结构目录</h1><span id="muscle-count"></span></div>
+        <label class="search-box"><span class="search-icon" aria-hidden="true"></span><input type="search" id="muscle-search" aria-label="搜索名称、部位或肌群" placeholder="搜索名称、部位或肌群"><kbd>/</kbd></label>
+        <div class="filter-wrap" aria-label="按区域筛选">
+          <button class="filter-chip is-active" data-filter="all">全部</button>
+          <button class="filter-chip" data-filter="head-neck">头颈</button>
+          <button class="filter-chip" data-filter="torso">躯干</button>
+          <button class="filter-chip" data-filter="upper">上肢</button>
+          <button class="filter-chip" data-filter="lower">下肢</button>
+        </div>
+        <nav class="muscle-list" id="muscle-list" aria-label="结构列表"></nav>
+        <div class="catalog-footer"><span><b id="visible-count"></b> 个结果</span><button id="clear-filter" type="button">重置筛选</button></div>
+      </aside>
+      <section class="viewer-panel" id="viewer" aria-label="三维解剖标本">
+        <div class="viewer-heading"><strong id="view-name">前侧观 · ANTERIOR</strong>
+          <div class="viewer-actions" aria-label="模型控制">
+            <div class="segmented-control" role="group" aria-label="视角">
+              <button type="button" id="front-view" class="is-active" aria-pressed="true">正面</button>
+              <button type="button" id="back-view" aria-pressed="false">背面</button>
+              <button type="button" id="side-view" aria-pressed="false">侧面</button>
+            </div>
+            <button id="labels-toggle" type="button" aria-pressed="true">标注</button>
+            <button id="auto-rotate" type="button" aria-pressed="false" aria-label="开启自动旋转" title="自动旋转（A）">旋转</button>
+            <button id="reset-view" type="button" aria-label="重置视角" title="重置（R）">复位</button>
+          </div>
+        </div>
+        <div class="canvas-wrap" id="canvas-wrap">
+          <canvas id="anatomy-canvas" tabindex="0" aria-label="三维人体模型。拖动旋转，右键拖动平移，滚轮缩放，点击肌肉查看详情。方向键旋转，加减键缩放。"></canvas>
+          <div id="callouts" aria-label="图中结构标注"></div>
+          <div class="canvas-loader" id="canvas-loader" role="status"><span></span><strong>正在载入三维解剖模型…</strong></div>
+          <div class="hover-tooltip" id="hover-tooltip" role="tooltip"></div>
+          <div class="webgl-error" id="webgl-error" hidden><strong>三维模型暂时无法显示</strong><p>请刷新页面并检查浏览器的图形加速设置。目录仍可浏览。</p></div>
+        </div>
+        <div class="viewer-footer"><span class="desktop-hint">拖动旋转 · 右键平移 · 滚轮缩放</span><span class="touch-hint">单指旋转 · 双指平移或缩放</span><span>点选结构查看详情</span></div>
+      </section>
+      <aside class="detail-panel" id="detail-panel" aria-label="结构详情" hidden>
+        <button class="back-to-list" id="close-detail" type="button">返回结构目录</button>
+        <article class="detail-content" id="detail-content">
+          <span class="region-pill" id="detail-region"></span>
+          <h2 id="detail-name"></h2><p class="latin" id="detail-latin"></p>
+          <section><h3 id="group-heading">所属肌群</h3><strong class="group-name" id="detail-group"></strong><p id="detail-position"></p></section>
+          <div class="fact-grid"><div><small>所在区域</small><strong id="detail-area"></strong></div><div><small>观察方向</small><strong id="detail-view"></strong></div><div><small>层次</small><strong id="detail-layer"></strong></div><div><small>形态</small><strong id="detail-form"></strong></div></div>
+          <section><h3 id="action-heading">主要作用</h3><p id="detail-action"></p></section>
+          <section><h3>体表定位</h3><p id="detail-landmark"></p></section>
+          <button class="locate-button" id="locate-muscle" type="button">放大观察</button>
+          <button class="locate-button" id="isolate" type="button" aria-pressed="false">单独显示</button>
+        </article>
+      </aside>
+    </main>
+    <dialog id="source-links"><form method="dialog"><button aria-label="关闭资料与模型来源">关闭</button></form><h2>资料与模型来源</h2>
+      <p id="geometry-credit"></p>
+      <p><a href="/models/credits.txt" target="_blank" rel="noreferrer">模型署名、许可及加工说明</a></p>
+      <p><a href="/models/atlas.glb" download>下载分区三维网格（GLB）</a></p>
+      <p><a href="/third-party-licenses.md" target="_blank" rel="noreferrer">网页第三方软件许可</a></p>
+      <p>中文名称与分区参考<a href="https://zh.wikipedia.org/wiki/人體肌肉列表" target="_blank" rel="noreferrer">《人体肌肉列表》</a>，肌肉作用参考 <a href="https://openstax.org/books/anatomy-and-physiology-2e/pages/11-chapter-review" target="_blank" rel="noreferrer">OpenStax 解剖生理学第 11 章</a>。材质色彩和纤维纹理用于教学辨认。</p>
+    </dialog>
+  </div>
+  <div class="sr-only" id="selection-announcer" aria-live="polite"></div>
+  <noscript>请启用 JavaScript 查看三维模型。</noscript>
+</body>
+</html>

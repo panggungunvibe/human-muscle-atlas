@@ -1,0 +1,28 @@
+人体肌群解剖版 · 解剖模型署名
+
+模型来源
+Fit Mit With anatomy atlas by slfresh, full-body-male-mobile.glb
+https://github.com/slfresh/fitmitwith-anatomy-atlas/tree/4120ee68b6604b8f2f69105d6de6166fad4734c4
+该资源基于 Z-Anatomy 与 BodyParts3D。原始资源与下面所述的几何、材质改编均按 CC BY-SA 4.0 提供。
+https://creativecommons.org/licenses/by-sa/4.0/
+
+“Z-Anatomy - The libre 3D atlas of anatomy - CC-BY-SA 4.0”
+https://github.com/Z-Anatomy/Models-of-human-anatomy
+原始模型 Kousaku Okubo，解剖与三维设计 Gauthier Kervyn，Blender 插件 Marcin Zielinski，及上游署名文件列出的贡献者。
+
+“BodyParts3D - The Database Center for Life Science - CC-BY-SA 2.1 Japan”
+https://creativecommons.org/licenses/by-sa/2.1/jp/
+“BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International”
+https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html
+https://creativecommons.org/licenses/by/4.0/
+
+本版改动
+保留上游肌肉、骨骼、腱膜及其他组织的几何。依据上游合并顺序、连通域和坐标，从结缔组织网格分离左右跟腱。运行时沿腹直肌边缘开窗显示肌腹，移开颈阔肌以展示颈侧深面的肌群。重新制作肌肉纤维、骨骼和筋膜的显示材质，增加中文标识、目录分组、选区及交互视图。所有模型改编同样按 CC BY-SA 4.0 提供。此声明适用于模型及显示的解剖改编。
+
+随模型提供的原始声明与许可
+网页另按眼睑开口补建了眼球表面与虹膜。正背面对照预览来自此模型的网页渲染，沿用 CC BY-SA 4.0。
+
+ATTRIBUTION.txt                 Fit Mit With 的原始来源与改编记录
+Z-Anatomy-LICENSE.txt           Z-Anatomy 的模型署名与许可
+LICENSE                         CC BY-SA 4.0 全文
+atlas.glb                       本站使用的可下载模型
